@@ -3,16 +3,12 @@ import pandas as pd
 import numpy as np
 import math
 
-
 st.set_page_config(
     page_title="ID3 Decision Tree Classifier",
     layout="centered",
-    
 )
-
 st.title(" ID3 Decision Tree Classifier")
 st.write("Train and test a simple **ID3 Decision Tree** using categorical data.")
-
 
 def entropy(col):
     values, counts = np.unique(col, return_counts=True)
@@ -60,7 +56,6 @@ def predict(tree, input_data):
 
     return "Unknown"
 
-
 data_dict = {
     "outlook": [
         "sunny","sunny","overcast","rain","rain","overcast",
@@ -94,11 +89,9 @@ if uploaded_file:
 
 show_data = st.sidebar.checkbox("Show Dataset Preview", value=True)
 
-
 if show_data:
     st.subheader("Dataset Preview")
     st.dataframe(df, use_container_width=True)
-
 
 st.subheader("Model Configuration")
 
@@ -110,13 +103,11 @@ target_col = st.selectbox(
 
 features = [c for c in df.columns if c != target_col]
 
-
 if st.button("Train Model"):
     tree = id3(df, target_col, features)
     st.session_state["tree"] = tree
     st.success("Model Trained Successfully!")
     st.json(tree)
-
 
 if "tree" in st.session_state:
     st.subheader("Make Prediction")
@@ -138,7 +129,7 @@ if "tree" in st.session_state:
         else:
             st.info(f"Prediction: **{result}**")
 
-
 st.markdown("---")
 st.caption("Built with Streamlit • ID3 Decision Tree")
+
 
