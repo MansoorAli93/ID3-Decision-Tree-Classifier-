@@ -1,4 +1,4 @@
-# ID3 Decision Tree Classifier 🌳
+# ID3 Decision Tree Classifier 
 
 ## Project Overview
 This project implements the **ID3 (Iterative Dichotomiser 3) Decision Tree algorithm** using Python and Streamlit.  
